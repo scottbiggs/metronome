@@ -19,3 +19,4 @@ Still designing, nothing implemented yet.
 - Programmable times: be able to go for 86 beats at 72 bpm then 8 measures at 48 bpm, then continue until stopped at 112 bpm, etc. etc. etc.
 - Programmable measures: be able to specify certain number of measures at 4/4, then certain at 3/4, then some at 4/4, the some at 3/8, etc. etc. etc.
 - Graphics: pendulum (tradition), bouncing ball, flashing, nothing, and perhaps some more
+- The programs should be sharable
