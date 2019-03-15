@@ -42,7 +42,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_margin="16dp"
-        android:background="@color/colorPrimaryDark"
+        android:background="@drawable/rounded_corner_primary_dark"
         app:layout_constraintBottom_toTopOf="@id/accent_tv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -53,36 +53,37 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_margin="14dp"
+            android:background="@drawable/rounded_corner_black"
             app:layout_constraintBottom_toBottomOf="@+id/flash_v"
             app:layout_constraintEnd_toEndOf="@+id/flash_v"
             app:layout_constraintStart_toStartOf="@id/flash_v"
             app:layout_constraintTop_toTopOf="@+id/flash_v" />
 
-            <View
-                android:id="@+id/tempo_widget"
-                android:layout_width="60dp"
-                android:layout_height="0dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="24dp"
-                android:background="#556"
-                app:layout_constraintBottom_toBottomOf="@+id/flash_cover"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tempo_tv" />
+        <View
+            android:id="@+id/tempo_widget"
+            android:layout_width="60dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="24dp"
+            android:background="#556"
+            app:layout_constraintBottom_toBottomOf="@+id/flash_cover"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tempo_tv" />
 
-            <TextView
-                android:id="@+id/tempo_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:fontFamily="monospace"
-                android:textSize="54sp"
-                app:layout_constraintEnd_toEndOf="@+id/flash_cover"
-                app:layout_constraintStart_toStartOf="@+id/flash_cover"
-                app:layout_constraintTop_toTopOf="@+id/flash_cover"
-                tools:text="120" />
+        <TextView
+            android:id="@+id/tempo_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="monospace"
+            android:textSize="54sp"
+            app:layout_constraintEnd_toEndOf="@+id/flash_cover"
+            app:layout_constraintStart_toStartOf="@+id/flash_cover"
+            app:layout_constraintTop_toTopOf="@+id/flash_cover"
+            tools:text="120" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
