@@ -10,7 +10,7 @@
     <View
         android:id="@+id/accent_widget"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="48dp"
         android:layout_marginEnd="48dp"
@@ -36,7 +36,7 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:text="4" />
 
-
+    <!-- This is the View that needs to flash with the beat -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/flash_v"
         android:layout_width="match_parent"
@@ -46,6 +46,7 @@
         app:layout_constraintBottom_toTopOf="@id/accent_tv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:visibility="visible"
         >
 
         <View
