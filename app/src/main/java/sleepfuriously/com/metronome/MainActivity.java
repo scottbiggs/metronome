@@ -50,9 +50,6 @@ public class MainActivity extends AppCompatActivity
     //  data
     //----------------------
 
-    /** data for handling the drag of the tempo widget */
-    int m_tempo_dragY_start, m_tempo_dragY_current;
-
     /** the current tempo */
     int m_tempo;
 
@@ -106,6 +103,11 @@ public class MainActivity extends AppCompatActivity
     }
 
 
+    /**
+     * Does all the manipulations to modify the tempo
+     *
+     * @param changeAmount  Amount to increase/decrease the tempo
+     */
     @SuppressLint("SetTextI18n")    // Removes unnecessary warning on int-to-string conversion
     @Override
     public void changeTempo(int changeAmount) {
@@ -122,7 +124,11 @@ public class MainActivity extends AppCompatActivity
         m_bbp_tv.setText(Integer.toString(m_tempo));
     }
 
-
+    /**
+     * Does all the manipulations to change the accents
+     *
+     * @param changeAmount  Amount to increase/decrease the beats per accent
+     */
     @SuppressLint("SetTextI18n")    // Removes unnecessary warning on int-to-string conversion
     @Override
     public void changeAccent(int changeAmount) {
@@ -138,4 +144,6 @@ public class MainActivity extends AppCompatActivity
 
         m_accent_tv.setText(Integer.toString(m_accent));
     }
+
+
 }

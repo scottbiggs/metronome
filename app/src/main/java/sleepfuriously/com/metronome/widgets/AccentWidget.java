@@ -102,6 +102,7 @@ public class AccentWidget extends View {
         });
     }
 
+
     /**
      * Converts given pixels to density-independent pixels.
      */
