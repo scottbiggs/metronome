@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <View
+    <sleepfuriously.com.metronome.widgets.AccentWidget
         android:id="@+id/accent_widget"
         android:layout_width="match_parent"
         android:layout_height="50dp"

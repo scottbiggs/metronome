@@ -2,14 +2,12 @@ package sleepfuriously.com.metronome;
 
 import androidx.appcompat.app.AppCompatActivity;
 import sleepfuriously.com.metronome.model.DefaultSettings;
+import sleepfuriously.com.metronome.widgets.AccentWidget;
 import sleepfuriously.com.metronome.widgets.TempoWidget;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.DragEvent;
-import android.view.MotionEvent;
-import android.view.View;
 import android.widget.TextView;
 
 
@@ -18,7 +16,7 @@ import android.widget.TextView;
  * list of wished-for features on the github readme.
  */
 public class MainActivity extends AppCompatActivity
-        implements TempoWidget.TempoChanger {
+        implements TempoWidget.TempoChanger, AccentWidget.AccentChanger {
 
     //----------------------
     //  constants
@@ -28,7 +26,9 @@ public class MainActivity extends AppCompatActivity
 
     public static final int
             MIN_TEMPO = 1,
-            MAX_TEMPO = 1000;
+            MAX_TEMPO = 1000,
+            MIN_ACCENT = 1,
+            MAX_ACCENT = 40;
 
     //----------------------
     //  widgets
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity
     TempoWidget m_tempo_widget;
 
     /** todo: slider or changing the accent */
-
+    AccentWidget m_accent_widget;
 
     //----------------------
     //  data
@@ -58,9 +58,6 @@ public class MainActivity extends AppCompatActivity
 
     /** current accent */
     int m_accent;
-
-    /** used for callbacks to TempoWidget */
-    TempoWidget.TempoChanger m_tempoChanger;
 
 
     //----------------------
@@ -76,11 +73,18 @@ public class MainActivity extends AppCompatActivity
         m_bbp_tv = findViewById(R.id.tempo_tv);
         m_accent_tv = findViewById(R.id.accent_tv);
         m_tempo_widget = findViewById(R.id.tempo_widget);
+        m_accent_widget = findViewById(R.id.accent_widget);
 
         // Any special setups here
         m_tempo_widget.init(this);
+        m_accent_widget.init(this);
+    }
 
-        // Fill UI with data--todo: put this in onResumer()
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // Fill UI with data
         setUIData();
     }
 
@@ -90,7 +94,7 @@ public class MainActivity extends AppCompatActivity
      * preconditions:
      *      All UI variables are initialized.
      */
-    @SuppressLint("SetTextI18n")
+    @SuppressLint("SetTextI18n")    // Removes unnecessary warning on int-to-string conversion
     private void setUIData() {
         DefaultSettings settings = DefaultSettings.getInstance(this);
 
@@ -102,7 +106,7 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-    @SuppressLint("SetTextI18n")
+    @SuppressLint("SetTextI18n")    // Removes unnecessary warning on int-to-string conversion
     @Override
     public void changeTempo(int changeAmount) {
         m_tempo += changeAmount;
@@ -119,4 +123,19 @@ public class MainActivity extends AppCompatActivity
     }
 
 
+    @SuppressLint("SetTextI18n")    // Removes unnecessary warning on int-to-string conversion
+    @Override
+    public void changeAccent(int changeAmount) {
+        m_accent += changeAmount;
+
+        // limit
+        if (m_accent < MIN_ACCENT) {
+            m_accent = MIN_ACCENT;
+        }
+        if (m_accent > MAX_ACCENT) {
+            m_accent = MAX_ACCENT;
+        }
+
+        m_accent_tv.setText(Integer.toString(m_accent));
+    }
 }
