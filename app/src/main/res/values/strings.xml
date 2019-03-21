@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">metronome</string>
+    <string name="record_button">R</string>
+    <string name="play_button">P</string>
 </resources>

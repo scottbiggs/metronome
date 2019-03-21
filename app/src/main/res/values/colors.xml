@@ -4,4 +4,7 @@
     <color name="colorPrimaryDark">#91126C</color>
     <color name="colorAccent">#135DE7</color>
 
+    <!-- todo: make these colors a little more palettable (pun!!!) -->
+    <color name="recording_anim_color_start">#faa</color>
+    <color name="recording_anim_color_end">#5cc</color>
 </resources>
