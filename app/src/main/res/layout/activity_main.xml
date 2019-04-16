@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/constraintLayout"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -12,13 +13,16 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="48dp"
-        android:layout_marginEnd="48dp"
         android:layout_marginBottom="16dp"
-        android:background="#556"
+        android:layout_marginEnd="48dp"
+        android:layout_marginStart="48dp"
+        android:background="#222"
+        android:scaleType="fitXY"
+        android:src="@drawable/blue_scrollwheel_horiz_1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        />
 
     <TextView
         android:id="@+id/accent_tv"
@@ -26,15 +30,15 @@
         android:layout_height="wrap_content"
         android:layout_above="@id/accent_widget"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:fontFamily="monospace"
         android:textSize="36sp"
         app:layout_constraintBottom_toTopOf="@+id/accent_widget"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:text="4" />
+        tools:text="4"/>
 
     <!-- This is the View that needs to flash with the beat -->
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -43,10 +47,10 @@
         android:layout_height="0dp"
         android:layout_margin="16dp"
         android:background="@drawable/rounded_corner_primary_dark"
+        android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@id/accent_tv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:visibility="visible"
         >
 
         <View
@@ -57,23 +61,27 @@
             android:background="@drawable/rounded_corner_black"
             app:layout_constraintBottom_toBottomOf="@+id/flash_v"
             app:layout_constraintEnd_toEndOf="@+id/flash_v"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@id/flash_v"
             app:layout_constraintTop_toTopOf="@+id/flash_v"
-            app:layout_constraintVertical_bias="0.428" />
+            app:layout_constraintVertical_bias="0.0"/>
 
         <sleepfuriously.com.metronome.widgets.TempoWidget
             android:id="@+id/tempo_widget"
             android:layout_width="60dp"
             android:layout_height="0dp"
+            android:layout_marginBottom="24dp"
+            android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="24dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="24dp"
-            android:background="#556"
+            android:background="#444"
+            android:scaleType="fitXY"
+            android:src="@drawable/blue_scrollwheel_vert_1"
             app:layout_constraintBottom_toBottomOf="@+id/flash_cover"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tempo_tv" />
+            app:layout_constraintTop_toBottomOf="@+id/tempo_tv"
+            />
 
         <TextView
             android:id="@+id/tempo_tv"
@@ -85,30 +93,57 @@
             app:layout_constraintEnd_toEndOf="@+id/flash_cover"
             app:layout_constraintStart_toStartOf="@+id/flash_cover"
             app:layout_constraintTop_toTopOf="@+id/flash_cover"
-            tools:text="120" />
+            tools:text="120"/>
 
         <Button
             android:id="@+id/record_butt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="18dp"
             android:layout_marginEnd="18dp"
+            android:layout_marginTop="18dp"
             android:minWidth="22dp"
             android:text="@string/record_button"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <ImageView
+            android:id="@+id/gradient_iv"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="@+id/tempo_widget"
+            app:layout_constraintEnd_toEndOf="@+id/flash_cover"
+            app:layout_constraintStart_toEndOf="@+id/tempo_widget"
+            app:layout_constraintTop_toTopOf="@+id/tempo_widget"
+            app:srcCompat="@drawable/ic_test_grad_fixed2"/>
 
         <Button
             android:id="@+id/play_butt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:layout_marginEnd="18dp"
-            android:minWidth="22dp"
+            android:layout_marginTop="8dp"
             android:enabled="false"
+            android:minWidth="22dp"
             android:text="@string/play_button"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/record_butt" />
+            app:layout_constraintTop_toBottomOf="@+id/record_butt"/>
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:background="@android:color/holo_green_light"
+            app:layout_constraintBottom_toBottomOf="@+id/tempo_widget"
+            app:layout_constraintEnd_toStartOf="@+id/tempo_widget"
+            app:layout_constraintStart_toStartOf="@+id/flash_cover"
+            app:layout_constraintTop_toTopOf="@+id/tempo_widget"
+            app:srcCompat="@drawable/vector_girl"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

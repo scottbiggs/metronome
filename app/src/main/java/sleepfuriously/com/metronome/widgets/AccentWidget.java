@@ -2,12 +2,17 @@ package sleepfuriously.com.metronome.widgets;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import androidx.appcompat.widget.AppCompatImageView;
+
 
 import androidx.annotation.Nullable;
+import sleepfuriously.com.metronome.R;
 
 /**
  * Custom widget for sliding the accent beats.
@@ -16,7 +21,7 @@ import androidx.annotation.Nullable;
  * The user can slide with their finger left or right along this
  * widget to change the number of beats per accent.
  */
-public class AccentWidget extends View {
+public class AccentWidget extends AppCompatImageView {
 
     //---------------------------
     //  constants
@@ -30,8 +35,11 @@ public class AccentWidget extends View {
     /** Minimum number of dips for this widget to register a slide */
     private static final float MOVEMENT_THRESHOLD = PIXELS_PER_BEAT;
 
+	/** number of images in the animation */
+	private static final int NUM_IMAGES = 3;
 
-    //---------------------------
+
+	//---------------------------
     //  data
     //---------------------------
 
@@ -40,7 +48,14 @@ public class AccentWidget extends View {
 
     private Context m_ctx;
 
-    //---------------------------
+	/** index to the currently displayed image--just like it says! */
+	private int m_currentDisplayedImageIndex;
+
+	/** array of all the image resources */
+	private Drawable[] m_displayedImages = new Drawable[NUM_IMAGES];
+
+
+	//---------------------------
     //  methods
     //---------------------------
 
@@ -64,7 +79,11 @@ public class AccentWidget extends View {
      */
     public void init(final AccentChanger changer) {
 
-        setOnTouchListener(new OnTouchListener() {
+	    m_displayedImages[0] = m_ctx.getResources().getDrawable(R.drawable.blue_scrollwheel_horiz_1);
+	    m_displayedImages[1] = m_ctx.getResources().getDrawable(R.drawable.blue_scrollwheel_horiz_2);
+	    m_displayedImages[2] = m_ctx.getResources().getDrawable(R.drawable.blue_scrollwheel_horiz_3);
+
+	    setOnTouchListener(new OnTouchListener() {
             @SuppressLint("ClickableViewAccessibility")
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -86,7 +105,6 @@ public class AccentWidget extends View {
                         diff = -diff;   // going other direction according to screen coords
 
                         int diff_dp = pxToDp((int)diff, m_ctx);
-//                        Log.d(TAG, "y = " + y + ", diff = " + diff + ", diff_dp = " + diff_dp);
 
                         if (Math.abs(diff_dp) > MOVEMENT_THRESHOLD) {
                             int beats = (int) (diff_dp / PIXELS_PER_BEAT);
@@ -103,7 +121,20 @@ public class AccentWidget extends View {
     }
 
 
-    /**
+	public  void increaseSlider() {
+		m_currentDisplayedImageIndex++;
+		m_currentDisplayedImageIndex = m_currentDisplayedImageIndex % NUM_IMAGES;
+		setImageDrawable(m_displayedImages[m_currentDisplayedImageIndex]);
+	}
+
+	public void decreaseSlider() {
+		m_currentDisplayedImageIndex += (NUM_IMAGES - 1);
+		m_currentDisplayedImageIndex = m_currentDisplayedImageIndex % NUM_IMAGES;
+		setImageDrawable(m_displayedImages[m_currentDisplayedImageIndex]);
+	}
+
+
+	/**
      * Converts given pixels to density-independent pixels.
      */
     @SuppressWarnings("AccessStaticViaInstance")

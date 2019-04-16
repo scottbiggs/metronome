@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   version="1.1"
+   id="svg2"
+   viewBox="0 0 301.37501 50.000001"
+   height="50"
+   width="301.375">
+  <defs
+     id="defs4">
+     <!-- 1. I combined the two linearGradients -->
+    <linearGradient
+       id="linearGradient4221"
+       gradientUnits="userSpaceOnUse"
+       y2="333.13052"
+       x2="293.45712"
+       y1="181.87831"
+       x1="205.97917"
+       >
+      <stop
+         id="stop4223"
+         offset="0"
+         style="stop-color:#67cdd7;stop-opacity:1;" />
+      <stop
+         id="stop4225"
+         offset="1"
+         style="stop-color:#67cdd7;stop-opacity:0;" />
+    </linearGradient>
+  </defs>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <!-- 2. I made sure that the linearGradient reference below matched the gradient definition above -->
+  <g
+     transform="translate(-99.3125,-225)"
+     style="display:inline"
+     id="layer3">
+    <rect
+       ry="4.99998"
+       rx="13"
+       y="181.87831"
+       x="159.7005"
+       height="163.10405"
+       width="167.05467"
+       id="rect4219"
+       style="opacity:1;fill:url(#linearGradient4221);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+  </g>
+</svg>

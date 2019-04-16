@@ -202,6 +202,15 @@ public class MainActivity extends AppCompatActivity
         }
 
         m_bbp_tv.setText(Integer.toString(m_tempo));
+
+        if ((m_tempo > MIN_TEMPO) && (m_tempo < MAX_TEMPO)) {
+	        if (changeAmount > 0) {
+		        m_tempo_widget.increaseSlider();
+	        }
+	        else {
+		        m_tempo_widget.decreaseSlider();
+	        }
+        }
     }
 
     /**
@@ -223,7 +232,18 @@ public class MainActivity extends AppCompatActivity
         }
 
         m_accent_tv.setText(Integer.toString(m_accent));
+
+        if ((m_accent > MIN_ACCENT) && (m_accent < MAX_ACCENT)) {
+	        if (changeAmount > 0) {
+		        m_accent_widget.increaseSlider();
+	        }
+	        else {
+		        m_accent_widget.decreaseSlider();
+	        }
+        }
+
     }
+
 
     /**
      * User has indicated that they want to record a new click.
